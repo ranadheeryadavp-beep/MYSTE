@@ -1,427 +1,260 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peramasani Ranadheer Yadav · Portfolio</title>
- 
-  <link rel="icon" type="image/png" href="logo.png">
-  <style>
-   
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peramasani Ranadheer Yadav | Portfolio</title>
+<meta name="description" content="Portfolio of Peramasani Ranadheer Yadav, first-year student at IIIT Raichur and aspiring founder.">
+<meta name="theme-color" content="#ffc800">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap" rel="stylesheet">
+<style>
+:root{--sun:#ffc800;--butter:#fff4bf;--ink:#000;--paper:#fff;--umber:#4a3a00;--display:"Archivo","Arial Black","Helvetica Neue",Arial,sans-serif;--body:"Source Serif 4",Georgia,serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:110px;-webkit-text-size-adjust:100%}
+body{font:400 1.125rem/1.65 var(--body);color:var(--ink);background:var(--butter)}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid;outline-offset:3px}
 
-    body {
-      font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-      background-color: #f4f6fb;
-      color: #1e2b3c;
-      line-height: 1.6;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+.top{position:sticky;top:0;z-index:10;background:var(--ink);color:var(--paper)}
+.top-in{max-width:1240px;margin:auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px}
+.brand{display:flex;align-items:center;gap:12px;font:700 1rem var(--display);text-decoration:none;white-space:nowrap}
+.brand img{width:36px;height:36px;border-radius:8px;background:var(--paper);object-fit:contain}
+.top nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.top nav::-webkit-scrollbar{display:none}
+.top nav a{font:600 .95rem var(--display);text-decoration:none;padding:8px 14px;border-radius:99px;white-space:nowrap;transition:background .15s,color .15s}
+.top nav a:hover{background:var(--paper);color:var(--ink)}
+.top nav a.cta{background:var(--sun);color:var(--ink)}
 
-    .container {
-      max-width: 1200px;
-      width: 100%;
-      background-color: #ffffff;
-      border-radius: 28px;
-      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
-      padding: 2rem 2.2rem;
-      margin-bottom: 2rem;
-    }
+.hero{position:relative;overflow:hidden;background:var(--sun);padding:72px 24px 96px}
+.hero::before{content:"";position:absolute;inset:20px;border:3px solid rgba(0,0,0,.18);pointer-events:none;background:linear-gradient(90deg,transparent calc(32% - 1.5px),rgba(0,0,0,.18) calc(32% - 1.5px) calc(32% + 1.5px),transparent calc(32% + 1.5px)),linear-gradient(90deg,transparent calc(68% - 1.5px),rgba(0,0,0,.18) calc(68% - 1.5px) calc(68% + 1.5px),transparent calc(68% + 1.5px))}
+.hero-in{position:relative;max-width:1240px;margin:auto;display:grid;gap:56px;align-items:end}
+.hero h1{font:800 clamp(2.2rem,10.4vw,3.6rem)/.92 var(--display);font-stretch:118%;text-transform:uppercase;letter-spacing:-.02em}
+.hero h1 span{display:block;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero h1 span:nth-child(2){animation-delay:.12s}
+.hero h1 span:nth-child(3){animation-delay:.24s}
+@keyframes rise{from{opacity:0;transform:translateY(45%)}}
+.lead{font-size:1.35rem;line-height:1.5;max-width:32ch;margin:32px 0}
+.actions{display:flex;flex-wrap:wrap;gap:16px}
+.btn{display:inline-block;padding:14px 26px;border:3px solid var(--ink);background:var(--ink);color:var(--sun);font:700 1rem var(--display);text-decoration:none;box-shadow:4px 4px 0 rgba(0,0,0,.3);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 rgba(0,0,0,.4)}
+.btn.alt{background:transparent;color:var(--ink)}
 
+.card{background:var(--paper);border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:28px;max-width:440px;width:100%}
+.card-head{display:flex;gap:18px;align-items:center;margin-bottom:22px}
+.logo{width:96px;height:96px;flex:none;border:3px solid var(--ink);background:var(--butter);padding:8px;object-fit:contain}
+.card h2{font:800 1.3rem/1.12 var(--display);text-transform:uppercase}
+.status{display:flex;gap:8px;align-items:center;margin-top:8px;font:600 .9rem var(--display)}
+.status::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--ink)}
+.facts div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-top:2px solid var(--ink)}
+.facts dt{font:600 .95rem var(--display);flex:none}
+.facts dd{text-align:right;overflow-wrap:anywhere;font-size:1rem;line-height:1.4}
 
-    h1 {
-      font-size: 2.6rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: #1a3b5c;
-      border-left: 6px solid #3b7a9e;
-      padding-left: 1rem;
-      margin-bottom: 0.75rem;
-    }
+.sec{padding:96px 24px}
+.wrap{max-width:1240px;margin:auto}
+.split{display:grid;gap:40px}
+.split>header h2::before{content:"";display:block;width:56px;height:8px;background:currentColor;margin-bottom:20px}
+h2{font:800 clamp(2rem,4.6vw,3.4rem)/1.04 var(--display);font-stretch:112%;letter-spacing:-.01em}
+.prose{max-width:60ch}
+.prose p+p{margin-top:1.1em}
+.tiles{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:40px}
+.tile{background:var(--paper);border:3px solid var(--ink);padding:20px}
+.tile b{display:block;font:600 .95rem var(--display);color:var(--umber);margin-bottom:6px}
+.tile span{font:700 1.15rem/1.25 var(--display)}
 
-    h2 {
-      font-size: 1.8rem;
-      font-weight: 500;
-      color: #2b4c6e;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #d0dfec;
-      padding-bottom: 0.4rem;
-    }
+.steps{list-style:none;padding:0;position:relative;counter-reset:s}
+.steps::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:4px;background:var(--ink)}
+.steps li{position:relative;padding:0 0 44px 66px;counter-increment:s}
+.steps li:last-child{padding-bottom:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:42px;height:42px;display:grid;place-items:center;background:var(--sun);border:3px solid var(--ink);border-radius:50%;font:800 1rem var(--display)}
+.steps small{display:block;font:600 .95rem var(--display);color:var(--umber);margin-bottom:2px}
+.steps h3{font:700 1.5rem/1.2 var(--display)}
+.steps p{margin-top:4px}
+.now{display:inline-block;margin-left:10px;padding:2px 10px;background:var(--ink);color:var(--sun);font:700 .85rem var(--display);vertical-align:middle}
 
-    h3 {
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: #2a5f7a;
-      margin-bottom: 0.5rem;
-      font-family: 'Georgia', 'Times New Roman', serif;
-    }
+.dark{background:var(--ink);color:var(--paper)}
+.dark h2,.dark .accent{color:var(--sun)}
+.pair{display:grid;gap:24px}
+.pair article{border:3px solid var(--sun);padding:32px}
+.pair h3{font:800 clamp(1.8rem,3.6vw,2.6rem)/1.05 var(--display);font-stretch:112%;color:var(--sun);margin-bottom:12px}
 
-    p {
-      margin-bottom: 1rem;
-    }
+.empty{border:3px dashed var(--ink);background:var(--paper);padding:40px}
+.empty h3{font:800 1.6rem/1.15 var(--display);margin-bottom:8px}
+.empty p{max-width:44ch;margin-bottom:24px}
 
-    .colored-text {
-      color: #0f4c5c;
-      font-weight: 500;
-    }
+.goal{background:var(--sun)}
+.big{font:800 clamp(2.2rem,7vw,5.2rem)/.98 var(--display);font-stretch:118%;text-transform:uppercase;letter-spacing:-.02em;max-width:14ch}
+.stages{display:grid;gap:16px;margin-top:56px}
+.stage{background:var(--paper);border:3px solid var(--ink);padding:24px}
+.stage b{display:block;font:800 1.2rem var(--display);margin-bottom:6px}
 
-    .italic-text {
-      font-style: italic;
-    }
+.mail{display:block;font:800 clamp(1.2rem,3.4vw,2.4rem)/1.2 var(--display);color:var(--sun);overflow-wrap:anywhere;text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:8px;margin:16px 0 40px}
+.mail:hover{background:var(--sun);color:var(--ink)}
+.map{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;min-height:240px;padding:24px;border:3px solid var(--sun);text-decoration:none;color:var(--sun);background:linear-gradient(rgba(255,200,0,.22) 2px,transparent 2px) 0 0/48px 48px,linear-gradient(90deg,rgba(255,200,0,.22) 2px,transparent 2px) 0 0/48px 48px,var(--ink);transition:background-color .15s,color .15s}
+.map:hover{background:linear-gradient(rgba(0,0,0,.2) 2px,transparent 2px) 0 0/48px 48px,linear-gradient(90deg,rgba(0,0,0,.2) 2px,transparent 2px) 0 0/48px 48px,var(--sun);color:var(--ink)}
+.map b{display:block;font:800 1.6rem/1.1 var(--display)}
+.map span{font:600 1rem var(--display)}
+.pin{position:absolute;top:36px;left:42%;width:40px;height:40px;background:currentColor;border-radius:50% 50% 50% 0;transform:rotate(-45deg)}
+.pin::after{content:"";position:absolute;inset:12px;border-radius:50%;background:var(--ink)}
+.map:hover .pin::after{background:var(--sun)}
 
-    .underline-text {
-      text-decoration: underline;
-      text-decoration-color: #7fa9c2;
-      text-underline-offset: 3px;
-    }
+footer{background:var(--ink);color:var(--paper);border-top:3px solid var(--sun);padding:28px 24px}
+.foot{max-width:1240px;margin:auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font:500 .95rem var(--display)}
+.foot a{color:var(--sun)}
 
-    .bold-text {
-      font-weight: 700;
-    }
-
-  
-    .profile-card {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: center;
-      background: #eef3f9;
-      border-radius: 24px;
-      padding: 1.8rem 2rem;
-      margin-top: 0.5rem;
-      border: 1px solid #d7e2ed;
-    }
-
-    #profile-pic {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid white;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-      background-color: #ffffff;
-    }
-
-    .profile-details {
-      flex: 1;
-    }
-
-    .profile-details h3 {
-      font-family: 'Segoe UI', sans-serif;
-      font-size: 1.8rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .badge {
-      background-color: #3b7a9e;
-      color: white;
-      display: inline-block;
-      padding: 0.2rem 1rem;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-    }
-
-    ul, ol {
-      margin-left: 1.8rem;
-      margin-bottom: 1.2rem;
-    }
-
-    li {
-      margin-bottom: 0.35rem;
-    }
-
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.2rem 0 1.8rem;
-      font-size: 1rem;
-      background-color: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    }
-
-    th {
-      background-color: #2b4c6e;
-      color: white;
-      font-weight: 500;
-      padding: 0.9rem 1rem;
-      text-align: left;
-    }
-
-    td {
-      padding: 0.8rem 1rem;
-      border-bottom: 1px solid #e2eaf1;
-    }
-
-    tr:last-child td {
-      border-bottom: none;
-    }
-
- 
-    .btn {
-      display: inline-block;
-      background-color: #2b4c6e;
-      color: white;
-      padding: 0.7rem 1.8rem;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      margin-right: 0.8rem;
-      margin-bottom: 0.8rem;
-      transition: background 0.2s;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      font-size: 1rem;
-    }
-
-    .btn-outline {
-      background-color: transparent;
-      border: 2px solid #2b4c6e;
-      color: #2b4c6e;
-      box-shadow: none;
-    }
-
-    .btn:hover {
-      background-color: #1e3a50;
-    }
-
-    .btn-outline:hover {
-      background-color: #e2eaf1;
-    }
-
-  
-    a {
-      color: #156b8a;
-      text-decoration: none;
-      font-weight: 500;
-      border-bottom: 1px dotted #a0c0d4;
-      transition: color 0.15s, border 0.15s;
-    }
-
-    a:hover {
-      color: #0b3b4f;
-      border-bottom: 1px solid #0b3b4f;
-    }
-
-   
-    .map-wrapper {
-      position: relative;
-      width: 100%;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
-      margin: 1.8rem 0 1rem;
-      border: 1px solid #cfdee9;
-    }
-
-    iframe {
-      display: block;
-      width: 100%;
-      height: 320px;
-      border: 0;
-    }
-
-    .flex-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      align-items: center;
-      margin: 1.2rem 0;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px dashed #cbdae7;
-      margin: 2rem 0 1rem;
-    }
-
-    .footer-note {
-      text-align: center;
-      color: #6f8fa8;
-      font-size: 0.9rem;
-      margin-top: 2rem;
-    }
-
-    @media (max-width: 650px) {
-      body {
-        padding: 0.8rem;
-      }
-      .container {
-        padding: 1.5rem 1.2rem;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      .profile-card {
-        flex-direction: column;
-        text-align: center;
-      }
-      .btn {
-        margin-right: 0.5rem;
-      }
-    }
-  </style>
+@media(min-width:700px){.pair{grid-template-columns:1fr 1fr}.stages{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:720px){html{scroll-padding-top:80px}}
+@media(min-width:960px){
+.hero{padding:104px 32px 120px}
+.hero-in{grid-template-columns:minmax(0,1.7fr) minmax(320px,1fr)}
+.hero h1{font-size:clamp(3.4rem,6.3vw,6.4rem)}
+.split{grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:72px}
+.split>header{position:sticky;top:104px;align-self:start}
+.card{justify-self:end}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero h1 span{animation:none}.btn,.map,.top nav a{transition:none}}
+</style>
 </head>
-<body>
-  <div class="container">
+<body id="top">
 
- 
-    <h1>PERAMASANI RANADHEER YADAV</h1>
-    <p style="font-size: 1.2rem; margin-bottom: 0.2rem;">
-      <span class="colored-text">CS101</span> · personal portfolio
-    </p>
+<header class="top">
+<div class="top-in">
+<a class="brand" href="#top"><img src="logo.png" alt="" width="36" height="36"><span>Ranadheer Yadav</span></a>
+<nav aria-label="Main">
+<a href="#about">About</a>
+<a href="#education">Education</a>
+<a href="#interests">Interests</a>
+<a href="#projects">Projects</a>
+<a href="#goals">Goals</a>
+<a class="cta" href="#contact">Contact</a>
+</nav>
+</div>
+</header>
 
-  
-    <div class="profile-card" id="profile-section">
-      <img id="profile-pic" src="logo.png" alt="profile logo" width="130" height="130">
-      <div class="profile-details">
-        <h3>Peramasani Ranadheer Yadav</h3>
-        <span class="badge">B.Tech 1st Year · IIIT Raichur</span>
-        <p>
-          <span class="bold-text">Date of Birth:</span> 10th November 2007 &nbsp;|&nbsp;
-          <span class="bold-text">Email:</span>
-          <a href="mailto:ranadheeryadavp@gmail.com">ranadheeryadavp@gmail.com</a>
-        </p>
-        <p>
-          <span class="colored-text">Hobbies:</span> Playing Kabaddi, listening to songs
-        </p>
-      </div>
-    </div>
+<main>
+<section class="hero" aria-labelledby="name">
+<div class="hero-in">
+<div>
+<h1 id="name"><span>Peramasani</span><span>Ranadheer</span><span>Yadav</span></h1>
+<p class="lead">First-year student at IIIT Raichur, working toward a company of my own.</p>
+<div class="actions">
+<a class="btn" href="#contact">Get in touch</a>
+<a class="btn alt" href="#education">See my education</a>
+</div>
+</div>
 
+<aside class="card" aria-label="Profile">
+<div class="card-head">
+<img class="logo" src="logo.png" alt="Logo of Peramasani Ranadheer Yadav" width="96" height="96">
+<div>
+<h2>Peramasani Ranadheer Yadav</h2>
+<p class="status">Currently studying</p>
+</div>
+</div>
+<dl class="facts">
+<div><dt>Born</dt><dd>10 November 2007</dd></div>
+<div><dt>College</dt><dd>IIIT Raichur, 1st year</dd></div>
+<div><dt>Interests</dt><dd>Kabaddi, songs</dd></div>
+<div><dt>Email</dt><dd><a href="mailto:ranadheeryadavp@gmail.com">ranadheeryadavp@gmail.com</a></dd></div>
+</dl>
+</aside>
+</div>
+</section>
 
-    <h2>About me</h2>
-    <p>
-      I'm currently a 1st-year B.Tech student at <span class="bold-text">IIIT Raichur</span>. 
-      I completed my 10th class at Sree Saraswathi Vidya Mandir, Pamidi, and my intermediate 
-      at Sri Chaitanya Junior College, Kurnool. I enjoy playing Kabaddi and listening to music. 
-      I'm passionate about learning new things and have a strong ambition to start my own 
-      company in the future.
-    </p>
+<section class="sec" id="about" aria-labelledby="about-h">
+<div class="wrap split">
+<header><h2 id="about-h">Studying now, building next.</h2></header>
+<div>
+<div class="prose">
+<p>I am Peramasani Ranadheer Yadav, a first-year student at IIIT Raichur. My schooling began at Sree Saraswathi Vidya Mandir in Pamidi and continued at Sri Chaitanya Junior College in Kurnool.</p>
+<p>Away from studies I play Kabaddi and listen to songs. The long-term plan is simple: start a company of my own.</p>
+</div>
+<div class="tiles">
+<div class="tile"><b>Born</b><span>10 November 2007</span></div>
+<div class="tile"><b>Studying at</b><span>IIIT Raichur, 1st year</span></div>
+<div class="tile"><b>Schooling in</b><span>Pamidi and Kurnool</span></div>
+<div class="tile"><b>Aiming for</b><span>Starting a company</span></div>
+</div>
+</div>
+</div>
+</section>
 
-   
-    <p>
-      <span class="bold-text">Connect:</span>
-      <a href="mailto:ranadheeryadavp@gmail.com">Email me</a> &nbsp;|&nbsp;
-      <a href="#education-table">Jump to education table</a>
-    </p>
+<section class="sec" id="education" aria-labelledby="edu-h" style="background:var(--paper)">
+<div class="wrap split">
+<header><h2 id="edu-h">Education</h2></header>
+<ol class="steps">
+<li><small>Class 10</small><h3>Sree Saraswathi Vidya Mandir</h3><p>Pamidi</p></li>
+<li><small>Intermediate</small><h3>Sri Chaitanya Junior College</h3><p>Kurnool</p></li>
+<li><small>Undergraduate</small><h3>IIIT Raichur<span class="now">Current</span></h3><p>First year</p></li>
+</ol>
+</div>
+</section>
 
-   
-    <h2>Hobbies &amp; interests</h2>
-    <ul>
-      <li><span class="bold-text">Kabaddi</span> – team sport, builds strength and strategy</li>
-      <li><span class="bold-text">Listening to songs</span> – relaxation and inspiration</li>
-      <li>Learning about business and entrepreneurship</li>
-      <li>Exploring new ideas for future startup</li>
-    </ul>
+<section class="sec dark" id="interests" aria-labelledby="int-h">
+<div class="wrap split">
+<header><h2 id="int-h">Interests</h2></header>
+<div class="pair">
+<article>
+<h3>Kabaddi</h3>
+<p>Playing Kabaddi is my favourite way to stay active. It rewards quick reactions, nerve and trust in the team.</p>
+</article>
+<article>
+<h3>Songs</h3>
+<p>Listening to songs is how I unwind. A good playlist fits every mood and every kind of day.</p>
+</article>
+</div>
+</div>
+</section>
 
- 
-    <h3>Daily routine</h3>
-    <ol>
-      <li>Morning: Kabaddi practice</li>
-      <li>Afternoon: IIIT Raichur classes and studies</li>
-      <li>Evening: Listening to music and relaxing</li>
-      <li>Night: Planning for future goals</li>
-    </ol>
+<section class="sec" id="projects" aria-labelledby="proj-h">
+<div class="wrap split">
+<header><h2 id="proj-h">Projects</h2></header>
+<div class="empty">
+<h3>No projects listed yet</h3>
+<p>The project list starts empty. The first entry will be the company itself.</p>
+<a class="btn" href="#goals">Read the goal</a>
+</div>
+</div>
+</section>
 
- 
-    <h2 id="education-table">Education</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Level</th>
-          <th>Institution</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>10th Class</td>
-          <td>Sree Saraswathi Vidya Mandir, Pamidi</td>
-          <td>Completed</td>
-        </tr>
-        <tr>
-          <td>Intermediate</td>
-          <td>Sri Chaitanya Junior College, Kurnool</td>
-          <td>Completed</td>
-        </tr>
-        <tr>
-          <td>B.Tech (1st Year)</td>
-          <td>IIIT Raichur</td>
-          <td>Currently pursuing</td>
-        </tr>
-      </tbody>
-    </table>
+<section class="sec goal" id="goals" aria-labelledby="goal-h">
+<div class="wrap">
+<h2 id="goal-h" class="big">Start a company of my own.</h2>
+<div class="stages">
+<div class="stage"><b>Now</b><p>Studying at IIIT Raichur and building a strong base in the first year.</p></div>
+<div class="stage"><b>Next</b><p>Build and ship a first project.</p></div>
+<div class="stage"><b>Goal</b><p>Found a start-up company.</p></div>
+</div>
+</div>
+</section>
 
-   
-    <h2>B.Tech Details</h2>
-    <p>
-      I am currently in my <span class="bold-text">1st year of B.Tech</span> at 
-      <span class="colored-text">IIIT Raichur</span>. The program focuses on core 
-      computer science and engineering principles, and I am excited to build a strong 
-      foundation in programming, data structures, and problem-solving.
-    </p>
-    <ul>
-      <li><span class="bold-text">Institute:</span> Indian Institute of Information Technology, Raichur</li>
-      <li><span class="bold-text">Year:</span> 1st Year (Ongoing)</li>
-      <li><span class="bold-text">Focus areas:</span> Programming fundamentals, mathematics, and computer systems</li>
-    </ul>
+<section class="sec dark" id="contact" aria-labelledby="contact-h">
+<div class="wrap split">
+<header><h2 id="contact-h">Get in touch</h2></header>
+<div>
+<p>The fastest way to reach me is email.</p>
+<a class="mail" href="mailto:ranadheeryadavp@gmail.com">ranadheeryadavp@gmail.com</a>
+<a class="map" href="https://maps.app.goo.gl/xTdQfXPMjtkXLLDk8?g_st=aw" target="_blank" rel="noopener noreferrer">
+<span class="pin" aria-hidden="true"></span>
+<b>Location</b>
+<span>Open in Google Maps</span>
+</a>
+</div>
+</div>
+</section>
+</main>
 
-  
-    <h2>Future goals</h2>
-    <p>
-      <span class="colored-text">Goal:</span> To start my own company and become
-      a successful entrepreneur. I want to build something meaningful that creates
-      value for people.
-    </p>
+<footer>
+<div class="foot">
+<p>&copy; 2026 Peramasani Ranadheer Yadav</p>
+<a href="#top">Back to top</a>
+</div>
+</footer>
 
-   
-    <div class="flex-row">
-      <span class="btn">Download CV</span>
-      <span class="btn btn-outline">Contact</span>
-      <span class="btn">Projects</span>
-    </div>
-
-   
-    <h2>My location</h2>
-    <div class="map-wrapper">
-      <iframe
-        src="https://maps.google.com/maps?q=15.006444,77.451556&z=15&output=embed"
-        title="Location map"
-        loading="lazy"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <p style="font-size: 0.95rem; margin-top: -0.3rem;">
-      <span class="colored-text">Note:</span> this map shows the general area of Pamidi.
-    </p>
-
-    
-    <hr>
-    <p>
-      <span class="bold-text">Bold</span> ·
-      <span class="italic-text">Italic</span> ·
-      <span class="underline-text">Underline</span> ·
-      <span style="color:#8e3b6b; font-weight:500;">colored text</span>
-    </p>
-
-   
-    <div class="footer-note">
-      <p>CS101 – Introduction to Computer Science · Personal portfolio</p>
-    </div>
-
-  </div>
 </body>
 </html>
