@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Portfolio · CS101</title>
+  <!-- favicon using logo.png (must be in same folder) -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    /* === global reset & base === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+      background-color: #f4f6fb;      /* light background color */
+      color: #1e2b3c;
+      line-height: 1.6;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* main container – used for centering and max-width */
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      background-color: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      padding: 2rem 2.2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* === typography === */
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #1a3b5c;               /* colored heading */
+      border-left: 6px solid #3b7a9e;
+      padding-left: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #2b4c6e;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #d0dfec;
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #2a5f7a;
+      margin-bottom: 0.5rem;
+      font-family: 'Georgia', 'Times New Roman', serif; /* different font for h3 */
+    }
+
+    /* paragraph and text styles */
+    p {
+      margin-bottom: 1rem;
+    }
+
+    .colored-text {
+      color: #0f4c5c;               /* specific colored text */
+      font-weight: 500;
+    }
+
+    .italic-text {
+      font-style: italic;
+    }
+
+    .underline-text {
+      text-decoration: underline;
+      text-decoration-color: #7fa9c2;
+      text-underline-offset: 3px;
+    }
+
+    .bold-text {
+      font-weight: 700;
+    }
+
+    /* === profile card (div with class + id) === */
+    .profile-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      background: #eef3f9;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      margin-top: 0.5rem;
+      border: 1px solid #d7e2ed;
+    }
+
+    #profile-pic {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      background-color: #ffffff;
+    }
+
+    .profile-details {
+      flex: 1;
+    }
+
+    .profile-details h3 {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .badge {
+      background-color: #3b7a9e;
+      color: white;
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    /* === lists === */
+    ul, ol {
+      margin-left: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* === table === */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2rem 0 1.8rem;
+      font-size: 1rem;
+      background-color: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    th {
+      background-color: #2b4c6e;
+      color: white;
+      font-weight: 500;
+      padding: 0.9rem 1rem;
+      text-align: left;
+    }
+
+    td {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid #e2eaf1;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* === buttons === */
+    .btn {
+      display: inline-block;
+      background-color: #2b4c6e;
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      border: none;
+      cursor: default;   /* not a real button action, just style */
+      margin-right: 0.8rem;
+      margin-bottom: 0.8rem;
+      transition: background 0.2s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      font-size: 1rem;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid #2b4c6e;
+      color: #2b4c6e;
+      box-shadow: none;
+    }
+
+    .btn:hover {
+      background-color: #1e3a50;
+      cursor: pointer;   /* just for demo effect */
+    }
+
+    .btn-outline:hover {
+      background-color: #e2eaf1;
+    }
+
+    /* === hyperlinks === */
+    a {
+      color: #156b8a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #a0c0d4;
+      transition: color 0.15s, border 0.15s;
+    }
+
+    a:hover {
+      color: #0b3b4f;
+      border-bottom: 1px solid #0b3b4f;
+    }
+
+    /* === iframe container === */
+    .map-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+      margin: 1.8rem 0 1rem;
+      border: 1px solid #cfdee9;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 320px;
+      border: 0;
+    }
+
+    /* === misc layout / semantic touches === */
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      align-items: center;
+      margin: 1.2rem 0;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dashed #cbdae7;
+      margin: 2rem 0 1rem;
+    }
+
+    /* small footer */
+    .footer-note {
+      text-align: center;
+      color: #6f8fa8;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    /* responsive */
+    @media (max-width: 650px) {
+      body {
+        padding: 0.8rem;
+      }
+      .container {
+        padding: 1.5rem 1.2rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .profile-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .btn {
+        margin-right: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER with name and portfolio title -->
+    <h1>Arjun Mehta</h1>
+    <p style="font-size: 1.2rem; margin-bottom: 0.2rem;">
+      <span class="colored-text">CS101</span> · personal portfolio
+    </p>
+
+    <!-- PROFILE CARD: logo.png as image inside (mandatory) -->
+    <div class="profile-card" id="profile-section">
+      <img id="profile-pic" src="logo.png" alt="profile logo" width="130" height="130">
+      <div class="profile-details">
+        <h3>Arjun Mehta</h3>
+        <span class="badge">B.Sc. Computer Science</span>
+        <p>
+          <span class="bold-text">Interests:</span> web design, algorithms,
+          <span class="italic-text">open‑source</span>, and
+          <span class="underline-text">human‑centered AI</span>.
+        </p>
+        <p>
+          <span class="colored-text">Education:</span> University of Delhi · 2nd year
+        </p>
+      </div>
+    </div>
+
+    <!-- PERSONAL BIODATA (paragraphs) -->
+    <h2>About me</h2>
+    <p>
+      I’m a computer science student based in New Delhi. I enjoy turning ideas into
+      clean, accessible websites. This portfolio is part of my CS101 assignment
+      to practice HTML &amp; CSS fundamentals. I believe in simple, readable design
+      and continuous learning.
+    </p>
+
+    <!-- TWO HYPERLINKS (one external, one internal to section) -->
+    <p>
+      <span class="bold-text">Find me:</span>
+      <a href="https://github.com" target="_blank" rel="noopener">GitHub</a> &nbsp;|&nbsp;
+      <a href="#education-table">Jump to education table</a>
+    </p>
+
+    <!-- UNORDERED LIST (skills/interests) -->
+    <h2>Skills &amp; interests</h2>
+    <ul>
+      <li><span class="bold-text">HTML5 &amp; CSS3</span> – semantic markup, flexbox, responsive basics</li>
+      <li><span class="bold-text">UI design</span> – wireframing, color theory, typography</li>
+      <li>Version control (Git) &amp; collaboration</li>
+      <li>Reading &amp; writing tech articles</li>
+    </ul>
+
+    <!-- ORDERED LIST (weekly schedule) -->
+    <h3>Weekly learning schedule</h3>
+    <ol>
+      <li>Monday: HTML &amp; CSS practice (2h)</li>
+      <li>Wednesday: JavaScript basics (self‑study)</li>
+      <li>Friday: Design critique &amp; portfolio work</li>
+      <li>Saturday: Project building &amp; review</li>
+    </ol>
+
+    <!-- TABLE (education) with id for internal link -->
+    <h2 id="education-table">Education</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Degree / level</th>
+          <th>Institution</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>B.Sc. Computer Science</td>
+          <td>University of Delhi</td>
+          <td>2024 – present</td>
+        </tr>
+        <tr>
+          <td>Senior Secondary (Science)</td>
+          <td>Delhi Public School</td>
+          <td>2022 – 2024</td>
+        </tr>
+        <tr>
+          <td>Secondary School</td>
+          <td>Green Valley School</td>
+          <td>2020 – 2022</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- BUTTONS (styled as links/divs) – use of button class -->
+    <div class="flex-row">
+      <span class="btn">Download CV</span>
+      <span class="btn btn-outline">Contact</span>
+      <span class="btn">Projects</span>
+    </div>
+
+    <!-- IFRAME with map location (provided google maps link) -->
+    <h2>My campus location</h2>
+    <div class="map-wrapper">
+      <iframe
+        src="https://maps.app.goo.gl/xTdQfXPMjtkXLLDk8?g_st=aw"
+        title="Campus location map"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p style="font-size: 0.95rem; margin-top: -0.3rem;">
+      <span class="colored-text">Note:</span> this map shows the university area.
+    </p>
+
+    <!-- extra formatting styles showcase (bold, italic, underline) -->
+    <hr>
+    <p>
+      <span class="bold-text">Bold</span> ·
+      <span class="italic-text">Italic</span> ·
+      <span class="underline-text">Underline</span> ·
+      <span style="color:#8e3b6b; font-weight:500;">colored text</span>
+    </p>
+
+    <!-- small footer with semantic info -->
+    <div class="footer-note">
+      <p>CS101 – Introduction to Computer Science · Personal portfolio</p>
+    </div>
+
+  </div>
+  <!-- end container -->
+</body>
+</html>
